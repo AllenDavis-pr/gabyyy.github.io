@@ -1,0 +1,202 @@
+/* Use your pink color palette */
+:root {
+  --pink-lightest: #FFE5EC;
+  --pink-lighter:  #FFC2D1;
+  --pink-light:    #FFB3C6;
+  --pink-medium:   #FF8FAB;
+  --pink-dark:     #FB6F92;
+}
+
+body {
+  background-color: var(--pink-lightest);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Container */
+.container {
+  text-align: center;
+}
+
+/* Floating image */
+.floating-image {
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+.floating-image img {
+  width: 250px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Float animation */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Card styling */
+.card {
+  width: 300px;
+  height: 150px;
+  perspective: 1000px;
+  margin: 20px auto;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--pink-light);
+  color: #ff4d6d;
+  border-radius: 20px;
+  padding: 20px;
+  backface-visibility: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+}
+
+.card-back {
+  background-color: var(--pink-light);
+  transform: rotateY(180deg);
+}
+
+.nextLetter {
+  margin-top: 20px;
+  background-color: var(--pink-dark);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.nextLetter:hover {
+  background-color: var(--pink-medium);
+}
+
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 999;
+}
+
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--pink-dark);
+  transform: rotate(45deg);
+  animation: floatHeart 6s linear infinite;
+  opacity: 0.7;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: var(--pink-dark);
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes floatHeart {
+  0% {
+    transform: translateY(100vh) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.music-btn {
+  margin-top: 10px;
+  background-color: var(--pink-dark);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.music-btn:hover {
+  background-color: var(--pink-medium);
+}
+
+
+.love-message {
+    position: fixed;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    color: black;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff5f7, 0 0 20px var(--pink-medium);
+    animation: pulseLove 1.5s ease-in-out infinite;
+    z-index: 1000;
+    pointer-events: none;
+  }
+  
+  @keyframes pulseLove {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.9;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
