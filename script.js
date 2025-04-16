@@ -102,12 +102,12 @@ function toggleMusic() {
   if (music.paused) {
     music.currentTime = 0; // restart when toggled on
     music.play();
-    toggleMusicFront.textContent = 'Pause Music 🔇';
-    toggleMusicBack.textContent = 'Pause Music 🔇';
+    toggleMusicFront.textContent = 'Pause Music!';
+    toggleMusicBack.textContent = 'Pause Music!';
   } else {
     music.pause();
-    toggleMusicFront.textContent = 'Play Music 🎶';
-    toggleMusicBack.textContent = 'Play Music 🎶';
+    toggleMusicFront.textContent = 'Play Music!';
+    toggleMusicBack.textContent = 'Play Music!';
   }
 }
 
