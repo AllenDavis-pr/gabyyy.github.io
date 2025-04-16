@@ -8,7 +8,11 @@
 }
 
 body {
-  background-color: var(--pink-lightest);
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
   padding: 20px;
@@ -22,31 +26,34 @@ body {
 /* Container */
 .container {
   text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-/* Floating image */
-.floating-image {
-  margin-bottom: 20px;
-  animation: float 3s ease-in-out infinite;
-}
 
 .floating-image img {
-  width: 250px;
+  width: 30vh;
   height: auto;
   border-radius: 20px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.floating-image {
+  animation: float 3s ease-in-out infinite;
+}
+
+
 /* Float animation */
 @keyframes float {
   0%   { transform: translateY(0px); }
-  50%  { transform: translateY(-10px); }
+  50%  { transform: translateY(-30px); }
   100% { transform: translateY(0px); }
 }
 
 /* Card styling */
 .card {
-  width: 300px;
+  width: 100%;
   height: 150px;
   perspective: 1000px;
   margin: 20px auto;
@@ -54,8 +61,7 @@ body {
 
 .card-inner {
   position: relative;
-  width: 100%;
-  height: 100%;
+  height: auto;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -67,14 +73,15 @@ body {
 .card-front, .card-back {
   position: absolute;
   width: 100%;
-  height: 100%;
   background-color: var(--pink-light);
   color: #ff4d6d;
   border-radius: 20px;
   padding: 20px;
+  padding-bottom: 40px;
   backface-visibility: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   font-weight: bold;
+  font-size: 2vh;
 }
 
 .card-back {
@@ -87,9 +94,9 @@ body {
   background-color: var(--pink-dark);
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 1vh 2vh;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 1.8vh;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -112,8 +119,8 @@ body {
 
 .heart {
   position: absolute;
-  width: 4vh;
-  height: 4vh;
+  width: 20px;
+  height: 20px;
   background-color: var(--pink-dark);
   transform: rotate(45deg);
   animation: floatHeart 6s linear infinite;
@@ -124,8 +131,8 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 4vh;
-  height: 4vh;
+  width: 20px;
+  height: 20px;
   background-color: var(--pink-dark);
   border-radius: 50%;
 }
@@ -159,9 +166,9 @@ body {
   background-color: var(--pink-dark);
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 1vh 1vh;
   border-radius: 20px;
-  font-size: 14px;
+  font-size: 1.8vh;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -176,8 +183,8 @@ body {
     top: 20px;
     width: 100%;
     text-align: center;
-    font-size: 48px;
-    color: black;
+    font-size: 7vh;
+    color: var(--pink-dark);
     font-weight: bold;
     text-shadow: 0 0 10px #fff5f7, 0 0 20px var(--pink-medium);
     animation: pulseLove 1.5s ease-in-out infinite;
@@ -199,4 +206,6 @@ body {
       opacity: 1;
     }
   }
+  
+
   
