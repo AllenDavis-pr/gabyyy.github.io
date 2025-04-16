@@ -2,15 +2,17 @@ const letters = [
   "Hey beautiful, press the next letter button!",
   "Your smile sets my heart on fire!",
   "Every love story is beautiful, but ours is my favourite.",
-  "Every day with you is better than Valentine's Day.",
+  "Every day with you is like Valentine's Day.",
   "Your eyes are big, brown, and the prettiest I've seen!",
   "Your hugs feel like home.",
-  "You're the sweetest part of my life ",
+  "You're the sweetest part of my life. ",
     "Even on my worst days, you make everything better.",
-    "I fall in love with you more every single day ",
+    "I fall in love with you more every single day.",
     "I promise to love you today, tomorrow, and always.",
-    "I still get butterflies every time I think of you ",
-    
+    "I still get butterflies every time I think of you. ",
+    "You make the most ordinary things so special.",
+    "In your arms, I find the comfort of a place I never want to leave."
+
 ];
 
 let currentIndex = 0;
@@ -21,7 +23,14 @@ const frontText = document.getElementById('letterTextFront');
 const backText = document.getElementById('letterTextBack');
 const buttons = document.querySelectorAll('.nextLetter');
 
+let typingTimeout;
+
 function typeText(element, text, callback) {
+  // clear any leftover typing timeouts
+  if (typingTimeout) {
+    clearTimeout(typingTimeout);
+  }
+
   element.textContent = '';
   let i = 0;
   const speed = 30;
@@ -30,14 +39,15 @@ function typeText(element, text, callback) {
     if (i < text.length) {
       element.textContent += text.charAt(i);
       i++;
-      setTimeout(type, speed);
+      // store this timeout, so we can clear it later
+      typingTimeout = setTimeout(type, speed);
     } else if (callback) {
       callback();
     }
   }
-
   type();
 }
+
 
 // Initial message
 typeText(frontText, letters[currentIndex]);
