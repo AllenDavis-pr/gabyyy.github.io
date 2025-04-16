@@ -112,8 +112,8 @@ body {
 
 .heart {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 4vh;
+  height: 4vh;
   background-color: var(--pink-dark);
   transform: rotate(45deg);
   animation: floatHeart 6s linear infinite;
@@ -124,8 +124,8 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 4vh;
+  height: 4vh;
   background-color: var(--pink-dark);
   border-radius: 50%;
 }
